@@ -17,12 +17,14 @@ use App\Http\Controllers\UserController;
 */
 Auth::routes();
 Route::get('/', function () {
-    return view('welcome');
+    return view('form/formguest');
 });
 
 
 Route::middleware(['admin'])->group(function () {
 	Route::resource('user', UserController::class);
+	Route::get('wargart', [RtController::class, 'index'])->name('wargart');
+	Route::get('warga', [WargaController::class, 'index'])->name('warga');
 });
 
 Route::middleware(['rw'])->group(function () {
@@ -35,6 +37,10 @@ Route::middleware(['rt'])->group(function () {
 	Route::get('/create', [WargaController::class, 'create'])->name('create');
 	Route::get('/show', [WargaController::class, 'show'])->name('show');
 	Route::post('/store', [WargaController::class, 'store'])->name('store');
+});
+
+Route::middleware(['guest'])->group(function () {
+	Route::post('/storeGuest', [WargaController::class, 'storeGuest'])->name('store');
 });
 
 

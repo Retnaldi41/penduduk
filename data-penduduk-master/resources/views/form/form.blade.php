@@ -33,7 +33,7 @@
 	                                <label>Nomor KK</label>
 	                            </div>
 	                            <div class="col-md-9 form-group">
-	                                <input type="number" id="kk" class="form-control" name="kk" placeholder="Nomor KK" maxlength="16" minlength="16">
+	                                <input type="text" id="kk" class="form-control" name="kk" placeholder="Nomor KK" maxlength="16" minlength="16">
 	                            </div>
 	                            <div class="col-md-3">
 	                                <label>Tempat dan Tanggal Lahir</label>

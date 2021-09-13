@@ -104,4 +104,26 @@ class WargaController extends Controller
         $warga2 = Warga::all();
         return view('table', ['warga' => $warga2]);
     }
+
+    public function storeGuest(Request $request)
+    {
+        $request->validate([
+            'nik' => 'required|numeric|digits:16',
+            'nama' => 'required',
+            'tempat_lahir' => 'required',
+            'tanggal_lahir' => 'required',
+        ]);
+        // Warga::create($request->all());
+        $warga = new Warga;
+        $warga->nik = $request->nik;
+        $warga->kk = $request->kk;
+        $warga->nama = $request->nama;
+        $warga->tempat_lahir = $request->tempat_lahir;
+        $warga->tanggal_lahir = $request->tanggal_lahir;
+        $warga->kontak = $request->kontak;
+        $warga->rt = $request->rt;
+        $warga->rw = $request->rw;
+        $warga->save();
+        return view('form/formguest');
+    }
 }

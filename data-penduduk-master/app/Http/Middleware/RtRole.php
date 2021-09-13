@@ -16,9 +16,9 @@ class RtRole
     public function handle($request, Closure $next)
     {
         $user = \Auth::user();
-        if ($user->role != 3) {
-            return abort(404);
-        }
+        // if ($user->role != 3) {
+        //     return abort(404);
+        // }
 
         return $next($request);
     }
